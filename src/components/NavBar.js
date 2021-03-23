@@ -1,4 +1,4 @@
-
+import { NavLink } from 'react-router-dom'
 import './NavBar.css'
 
 
@@ -9,16 +9,15 @@ const NavBar = () => {
 
         <div className="NavBar">
             <a href="/">
-            <img src="./logo.png" alt="Made 4 You"/>
+                <img src="./logo.png" alt="Made 4 You" />
             </a>
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/about">About</NavLink>
+            <NavLink to="/contacts">Contacts</NavLink>
+            <NavLink to="/other">Other</NavLink>
 
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-            <a href="/contacts">Contacts</a>
-            <a href="/other">Other</a>
-            
         </div>
     );
 }
 
-export default NavBar; 
+export default NavBar;
