@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import offersServices from '../services/offersServices';
-import Card from '../components/cards/Card'
+import offersServices from '../../services/offersServices';
+import Card from '../cards/Card'
 import './HomePage.css'
 
 

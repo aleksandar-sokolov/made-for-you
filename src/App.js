@@ -1,10 +1,10 @@
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 
-import NavBar from './components/NavBar'
-import Footer from './components/Footer'
-import HomePage from './components/HomePage';
-import Contacts from './components/Contacts';
+import NavBar from './components/NavBar/NavBar'
+import Footer from './components/Footer/Footer'
+import HomePage from './components/HomePage/HomePage';
+import Contacts from './components/Contacts/Contacts';
 import ProductForm from './components/forms/ProductForm';
 
 
