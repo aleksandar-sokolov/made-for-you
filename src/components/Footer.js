@@ -6,7 +6,7 @@ const Footer = () => {
             // 'position': 'absolute',
             'width': '50%',
             // 'bottom': '10px',
-            "text-align": "center"
+            "textAlign": "center"
         }}>
             <span>&copy; Made 4 You</span>
         </div>
