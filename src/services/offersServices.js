@@ -1,4 +1,7 @@
 const url = 'http://localhost:5000/data'
+//npx json-server --watch db.json --port 5000
+
+
 
 function getAll() {
 

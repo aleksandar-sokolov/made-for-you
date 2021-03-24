@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import offersServices from '../services/offersServices';
+import Card from '../components/cards/Card'
+
 
 const HomePage = () => {
 
@@ -25,10 +27,7 @@ const HomePage = () => {
 
             {offers?.map(x => {
                 return (
-                    <div id={x.id}>
-                        <strong>{x.owner}</strong>
-                        <p>{x.description}</p>
-                    </div>
+                    <Card {...x} />
                 );
             })}
 

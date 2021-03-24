@@ -8,9 +8,9 @@ const NavBar = () => {
     return (
 
         <div className="NavBar">
-            <a href="/">
+            <NavLink to="/">
                 <img src="./logo.png" alt="Made 4 You" />
-            </a>
+            </NavLink>
             <NavLink to="/">Home</NavLink>
             <NavLink to="/about">About</NavLink>
             <NavLink to="/contacts">Contacts</NavLink>

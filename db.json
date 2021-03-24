@@ -2,23 +2,35 @@
     "data": [
         {
             "id": 1,
+            "name": "test",
             "owner": "Pesho",
-            "description": "sdfgsdfgbsfvbxvxvxv"
+            "description": "Pottery",
+            "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Wave_bowl_MET_LC-2001_549-001_%28cropped%29.jpg",
+            "price": 100
         },
         {
             "id": 1,
             "owner": "Gosho",
-            "description": "sdfgsdfgbsfvbxvxvxv"
+            "name": "test",
+            "description": "sdfgsdfgbsfvbxvxvxv",
+            "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQD7Ezl6TsHKNTtTvZ8m8XKZYTsdWd6UfH6JA&usqp=CAU",
+            "price": 120
         },
         {
             "id": 1,
             "owner": "Stamat",
-            "description": "sdfgsdfgbsfvbxvxvxv"
+            "name": "test",
+            "description": "sdfgsdfgbsfvbxvxvxv",
+            "imgUrl": "https://swinn.com/wp-content/uploads/sites/5/2019/09/GettyImages-478319994-1024x576.jpg",
+            "price": 100
         },
         {
             "id": 1,
             "owner": "Mart",
-            "description": "sdfgsdfgbsfvbxvxvxv"
+            "name": "test",
+            "description": "sdfgsdfgbsfvbxvxvxv",
+            "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Wave_bowl_MET_LC-2001_549-001_%28cropped%29.jpg",
+            "price": 100
         }
     ]
 }
