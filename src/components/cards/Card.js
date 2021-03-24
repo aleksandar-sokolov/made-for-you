@@ -8,7 +8,7 @@ const Card = ({ imgUrl, name, description, price, owner, id }) => {
             <h1>{name}</h1>
             <p className="price">${price}</p>
             <p>{description}</p>
-            <p><a href={`/product/${id}`}>Add to Cart</a></p>
+            <p><a href={`/product/${id}`}>Details</a></p>
         </div>
     );
 }

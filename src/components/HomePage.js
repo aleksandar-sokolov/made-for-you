@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import offersServices from '../services/offersServices';
 import Card from '../components/cards/Card'
+import './HomePage.css'
 
 
 const HomePage = () => {
@@ -17,13 +18,14 @@ const HomePage = () => {
 
     return (
 
-        <div className="home-page">
+        <div className="HomePage">
 
 
 
-            <h1>Made For You</h1>
-            <h2>Search, sell or buy</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, eveniet libero, vel porro odit laboriosam nemo soluta nostrum maxime at sit voluptatem quae explicabo. Et ipsa ipsam voluptas, ipsum obcaecati at facere numquam sequi sunt possimus! Voluptatem explicabo quidem esse reprehenderit eos hic dicta sunt aliquid vel? Cumque, pariatur autem!</p>
+            <h1>Made 4 You</h1>
+            <h2>Search, sell or buy handmade products</h2>
+            <p>Made 4 You is a platform where you can find the perfect handmade gift or add products you make.
+After registration you can see the contacts of the sellers or add products that other people can see. </p>
 
             {offers?.map(x => {
                 return (
