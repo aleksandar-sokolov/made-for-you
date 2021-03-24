@@ -9,7 +9,7 @@ const NavBar = () => {
 
         <div className="NavBar">
             <NavLink to="/">
-                <img src="logo.png" alt="Made 4 You" />
+                <img src="/logo.png" alt="Made 4 You" />
             </NavLink>
             <NavLink to="/">Home</NavLink>
             <NavLink to="/about">About</NavLink>

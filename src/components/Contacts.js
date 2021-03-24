@@ -5,7 +5,11 @@ const Contacts = () => {
 
     return (
 
-        <div className="Contacts">
+        <div
+            className="Contacts"
+            style={{
+                textAlign: "center"
+            }}>
             <h1>Contacts</h1>
 
             <p>Address: Sofia, 1000</p>
