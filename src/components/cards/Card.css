@@ -6,6 +6,7 @@
     font-family: arial;
     display: inline-block;
     margin-left: 10px;
+    margin-bottom: 10px;
   }
   
   .card:hover {
@@ -33,4 +34,9 @@
   
   .card a:hover {
     opacity: 0.7;
+  }
+
+  .card img {
+    max-width: 300px;
+    max-height: 300px;
   }

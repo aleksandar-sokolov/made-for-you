@@ -9,7 +9,7 @@
             "price": 100
         },
         {
-            "id": 1,
+            "id": 2,
             "owner": "Gosho",
             "name": "test",
             "description": "sdfgsdfgbsfvbxvxvxv",
@@ -17,7 +17,7 @@
             "price": 120
         },
         {
-            "id": 1,
+            "id": 3,
             "owner": "Stamat",
             "name": "test",
             "description": "sdfgsdfgbsfvbxvxvxv",
@@ -25,7 +25,7 @@
             "price": 100
         },
         {
-            "id": 1,
+            "id": 4,
             "owner": "Mart",
             "name": "test",
             "description": "sdfgsdfgbsfvbxvxvxv",

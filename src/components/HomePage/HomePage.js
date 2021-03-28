@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import offersServices from '../../services/offersServices';
-import Card from '../cards/Card'
+import productServices from '../../services/productServices';
+import Card from '../Cards/Card'
 import './HomePage.css'
 
 
@@ -9,7 +9,7 @@ const HomePage = () => {
     const [offers, setOffers] = useState();
 
     useEffect(() => {
-        offersServices.getAll()
+        productServices.getAll()
             .then(data => {
                 console.log(data);
                 setOffers(data)
@@ -24,12 +24,11 @@ const HomePage = () => {
 
             <h1>Made 4 You</h1>
             <h2>Search, sell or buy handmade products</h2>
-            <p>Made 4 You is a platform where you can find the perfect handmade gift or add products you make.
-After registration you can see the contacts of the sellers or add products that other people can see. </p>
+            <p>Made 4 You is a platform where you can find the perfect handmade gift or add products you make.After registration you can see the contacts of the sellers or add products that other people can see. </p>
 
             {offers?.map(x => {
                 return (
-                    <Card {...x} />
+                    <Card key={x.objectId} {...x} />
                 );
             })}
 

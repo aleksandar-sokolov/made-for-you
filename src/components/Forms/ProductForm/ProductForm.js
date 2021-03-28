@@ -1,9 +1,9 @@
 import { useState } from 'react';
+import productServices from '../../../services/productServices'
 
-import './ProductForm.css'
-const ProductForm = () => {
+import '../Form.css'
 
-
+const ProductForm = ({ history }) => {
 
     const onProductSubmitHandler = function (e) {
         e.preventDefault();
@@ -13,7 +13,13 @@ const ProductForm = () => {
             imgUrl: e.target.imgUrl.value,
             description: e.target.description.value,
         }
+
         console.log(producData);
+        productServices.add(producData, 'testkey')
+            .then(res => {
+                console.log(res);
+                history.push('/');
+            })
     };
 
     return (
