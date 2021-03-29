@@ -16,7 +16,7 @@ const EditForm = ({ match, history }) => {
                 setIsPending(false)
                 console.log("productData :::" + JSON.stringify(productData));
             })
-    }, [])
+    }, [id, productData])
 
 
     const onProductSubmitHandler = function (e) {

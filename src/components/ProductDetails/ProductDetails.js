@@ -19,7 +19,7 @@ const ProductDetails = (params) => {
                 setIsPending(false)
                 console.log("productData :::" + JSON.stringify(productData));
             })
-    }, [])
+    }, [id, productData])
 
 
     const handleDeleteProduct = () => {

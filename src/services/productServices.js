@@ -1,7 +1,7 @@
 import { basicURL, endpoints } from './databaseConfig'
 
 
- async function add(body, userToken) {
+async function add(body, userToken) {
     return (await fetch(basicURL + endpoints.table, {
         method: 'POST',
         headers: {
@@ -12,7 +12,7 @@ import { basicURL, endpoints } from './databaseConfig'
     })).json()
 }
 
- async function update(body, userToken, objectId) {
+async function update(body, userToken, objectId) {
     return (await fetch(basicURL + endpoints.table + '/' + objectId, {
         method: 'PUT',
         headers: {
@@ -23,7 +23,7 @@ import { basicURL, endpoints } from './databaseConfig'
     })).json()
 }
 
- async function getOne(userToken, objectId) {
+async function getOne(userToken, objectId) {
     return (await fetch(basicURL + endpoints.table + '/' + objectId, {
         method: 'GET',
         headers: {
@@ -32,7 +32,7 @@ import { basicURL, endpoints } from './databaseConfig'
     })).json()
 }
 
- async function getAll(userToken) {
+async function getAll(userToken) {
     return (await fetch(basicURL + endpoints.table, {
         method: 'GET',
         headers: {
@@ -41,7 +41,7 @@ import { basicURL, endpoints } from './databaseConfig'
     })).json()
 }
 
- async function deleteOne(userToken, objectId) {
+async function deleteOne(userToken, objectId) {
     return (await fetch(basicURL + endpoints.table + '/' + objectId, {
         method: 'DELETE',
         headers: {
@@ -53,7 +53,7 @@ import { basicURL, endpoints } from './databaseConfig'
 
 
 export default {
-    getAll, 
+    getAll,
     getOne,
     deleteOne,
     update,

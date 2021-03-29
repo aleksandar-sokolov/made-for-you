@@ -8,6 +8,7 @@ import Contacts from './components/Contacts/Contacts';
 import ProductForm from './components/Forms/ProductForm/ProductForm';
 import ProductDetails from './components/ProductDetails/ProductDetails';
 import EditForm from './components/Forms/EditForm/EditForm';
+import Login from './components/Login/Login';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/product/add" exact component={ProductForm} />
         <Route path="/product/:id" exact component={ProductDetails} />
         <Route path="/edit/:id" exact component={EditForm} />
+        <Route path="/login" exact component={Login} />
         <Route path="/" ><p>Under construction...</p></Route>
       </Switch>
       <Footer />
