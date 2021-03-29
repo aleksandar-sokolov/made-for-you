@@ -6,7 +6,7 @@ const Register = () => {
         e.preventDefault()
         const username = e.target.username.value;
         const password = e.target.password.value;
-        const rePassword = e.target['re-password'].value;
+        // const rePassword = e.target['re-password'].value;
         registerUser(username, password)
             .then(res => console.log(res))
             .catch(err => console.log(err))

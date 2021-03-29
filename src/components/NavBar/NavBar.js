@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom'
 import './NavBar.css'
 
 
-const NavBar = () => {
+const NavBar = ({username}) => {
 
 
     return (
@@ -15,11 +15,21 @@ const NavBar = () => {
             <NavLink to="/about">About</NavLink>
             <NavLink to="/contacts">Contacts</NavLink>
             <NavLink to="/other">Other</NavLink>
-            <NavLink to="/product/add">Add Product</NavLink>
-            <NavLink to="/login">Login</NavLink>
-            <NavLink to="/register">Register</NavLink>
+            {username ?
+                <>
+                    <NavLink to="/product/add">Add Product</NavLink>
+                    <NavLink to={`/user/${username}`}>Hello, {localStorage.username}</NavLink>
+                </>
+                :
+                <>
+                    <NavLink to="/register">Register</NavLink>
+                    <NavLink to="/login">Login</NavLink>
+                </>
+            }
 
-        </div>
+
+
+        </div >
     );
 }
 

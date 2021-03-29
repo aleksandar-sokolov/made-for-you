@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 
@@ -11,19 +12,25 @@ import EditForm from './components/Forms/EditForm/EditForm';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 
-
 function App() {
+
+  const [username, setUsername] = useState(localStorage.username);
+
+  const handleLogin = () => {
+      setUsername(localStorage.username);
+  }
+
   return (
     <div className="site-container">
 
-      <NavBar />
+      <NavBar username = {username}/>
       <Switch>
         <Route path="/" exact component={HomePage} />
         <Route path="/contacts" exact component={Contacts} />
         <Route path="/product/add" exact component={ProductForm} />
         <Route path="/product/:id" exact component={ProductDetails} />
         <Route path="/edit/:id" exact component={EditForm} />
-        <Route path="/login" exact component={Login} />
+        <Route path="/login" exact ><Login onLogin = {handleLogin}/></Route>
         <Route path="/register" exact component={Register} />
         <Route path="*" ><p>Under construction...</p></Route>
       </Switch>

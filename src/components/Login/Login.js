@@ -1,7 +1,10 @@
+import { useHistory } from "react-router";
 import { loginUser } from "../../services/authServices";
 
-const Login = () => {
+const Login = ({onLogin}) => {
 
+    const history = useHistory(); 
+    
     const handleLoginSubmit = (e) => {
         e.preventDefault();
         const username = e.target.username.value;
@@ -12,6 +15,8 @@ const Login = () => {
                 localStorage.setItem('username', res.username);
                 localStorage.setItem('token', res['user-token']);
                 console.log('successful login');
+                onLogin()
+                history.push('/')
             })
             .catch(console.log)
 
