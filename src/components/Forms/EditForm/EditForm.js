@@ -14,9 +14,9 @@ const EditForm = ({ match, history }) => {
             .then(data => {
                 setProducData({ ...data });
                 setIsPending(false)
-                console.log("productData :::" + JSON.stringify(productData));
+                console.log(data);
             })
-    }, [id, productData])
+    }, [id])
 
 
     const onProductSubmitHandler = function (e) {
@@ -29,7 +29,7 @@ const EditForm = ({ match, history }) => {
         }
 
         console.log(newData);
-        productServices.update(newData, '', id)
+        productServices.update(newData, localStorage.token, id)
             .then(res => {
                 console.log(res);
                 history.push('/product/' + id);

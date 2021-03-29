@@ -17,13 +17,13 @@ const ProductDetails = (params) => {
             .then(data => {
                 setProducData({ ...data });
                 setIsPending(false)
-                console.log("productData :::" + JSON.stringify(productData));
+                console.log(data);
             })
-    }, [id, productData])
+    }, [id])
 
 
     const handleDeleteProduct = () => {
-        productServices.deleteOne("", productData.objectId)
+        productServices.deleteOne(localStorage.token, productData.objectId)
             .then(res => {
                 console.log(res);
                 params.history.push('/');

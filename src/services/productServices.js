@@ -6,7 +6,7 @@ async function add(body, userToken) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            // 'user-token': userToken
+            'user-token': userToken
         },
         body: JSON.stringify(body),
     })).json()
@@ -17,7 +17,7 @@ async function update(body, userToken, objectId) {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
-            // 'user-token': userToken
+            'user-token': userToken
         },
         body: JSON.stringify(body),
     })).json()
@@ -45,7 +45,7 @@ async function deleteOne(userToken, objectId) {
     return (await fetch(basicURL + endpoints.table + '/' + objectId, {
         method: 'DELETE',
         headers: {
-            // 'user-token': userToken
+            'user-token': userToken
         },
     })).json()
 }

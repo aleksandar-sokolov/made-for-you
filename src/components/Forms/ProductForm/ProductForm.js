@@ -14,7 +14,7 @@ const ProductForm = ({ history }) => {
         }
 
         console.log(producData);
-        productServices.add(producData, 'testkey')
+        productServices.add(producData, localStorage.token)
             .then(res => {
                 console.log(res);
                 history.push('/');
