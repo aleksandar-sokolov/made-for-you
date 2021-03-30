@@ -1,0 +1,23 @@
+div.ProductDetails {
+    position: relative;
+    flex-direction: row;
+    display: flex;
+}
+
+div.details {
+    width: 50%;
+    display: inline-block;
+    height: 80%;
+    /* flex: 0.4; */
+}
+
+.details.img img{
+    max-width: 100%;
+    max-height: 600px;
+}
+
+/* div.details.data{
+    border: 1px solid blue;
+    display: inline-block;
+    flex: 0.4;
+} */

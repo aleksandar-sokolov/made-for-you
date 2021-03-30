@@ -1,42 +1,42 @@
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 300px;
-    margin: auto;
-    text-align: center;
-    font-family: arial;
-    display: inline-block;
-    margin-left: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .card:hover {
-    box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  display: inline-block;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  height: 10rem
+}
 
-  }
+.card:hover {
+  box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.5);
+}
 
-  .price {
-    color: grey;
-    font-size: 22px;
-  }
-  
-  .card a {
-    text-decoration: none;
-    border: none;
-    outline: 0;
-    padding: 12px;
-    color: white;
-    background-color: #000;
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-    font-size: 18px;
-  }
-  
-  .card a:hover {
-    opacity: 0.7;
-  }
+.price {
+  color: grey;
+  font-size: 22px;
+}
 
-  .card img {
-    max-width: 300px;
-    max-height: 300px;
-  }
+.card a {
+  text-decoration: none;
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card a:hover {
+  opacity: 0.7;
+}
+
+.card img {
+  max-width: 300px;
+  max-height: 300px;
+}

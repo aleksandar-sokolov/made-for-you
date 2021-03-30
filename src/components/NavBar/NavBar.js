@@ -8,10 +8,10 @@ const NavBar = ({username}) => {
     return (
 
         <div className="NavBar">
-            <NavLink to="/">
+            <NavLink to="/" exact>
                 <img src="/logo.png" alt="Made 4 You" />
             </NavLink>
-            <NavLink to="/">Home</NavLink>
+            <NavLink to="/" exact>Home</NavLink>
             <NavLink to="/about">About</NavLink>
             <NavLink to="/contacts">Contacts</NavLink>
             <NavLink to="/other">Other</NavLink>
