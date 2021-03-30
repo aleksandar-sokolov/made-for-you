@@ -46,12 +46,16 @@ const ProductDetails = (params) => {
                         <h1>{productData.name}</h1>
                         <p className="price">${productData.price}</p>
                         <p>{productData.description}</p>
+
                         {isOwner &&
                             <>
                                 <button onClick={handleDeleteProduct}>Delete</button>
                                 <Link to={`/edit/${productData.objectId}`}>Edit</Link>
                             </>
                         }
+
+                        {!isOwner && localStorage.username && <p>Seller contacts: {productData.contacts}</p>}
+                        {!localStorage.username && <p><Link to="/login">Login</Link> to see seller contacts!</p>}
                     </div>
                 </>
             }
