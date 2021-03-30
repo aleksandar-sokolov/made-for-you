@@ -14,6 +14,7 @@ const Login = ({onLogin}) => {
             .then(res => {
                 localStorage.setItem('username', res.username);
                 localStorage.setItem('token', res['user-token']);
+                localStorage.setItem('objectId', res.objectId);
                 console.log('successful login');
                 onLogin()
                 history.push('/')

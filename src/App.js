@@ -11,6 +11,7 @@ import ProductDetails from './components/ProductDetails/ProductDetails';
 import EditForm from './components/Forms/EditForm/EditForm';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
+import { logoutUser } from './services/authServices';
 
 function App() {
 
@@ -20,10 +21,19 @@ function App() {
       setUsername(localStorage.username);
   }
 
+  const handleLogout = () => {
+    logoutUser(localStorage.token)
+    .then(res => {
+      console.log(res);
+      localStorage.clear();
+      setUsername('');
+    })
+  }
+
   return (
     <div className="site-container">
 
-      <NavBar username = {username}/>
+      <NavBar username = {username} handleLogout = {handleLogout}/>
       <Switch>
         <Route path="/" exact component={HomePage} />
         <Route path="/contacts" exact component={Contacts} />

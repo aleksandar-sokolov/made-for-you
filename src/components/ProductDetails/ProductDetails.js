@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import productServices from '../../services/productServices';
-import Card from '../Cards/Card';
+// import Card from '../Cards/Card';
 import './ProductDetails.css'
 
 const ProductDetails = (params) => {
@@ -10,13 +10,16 @@ const ProductDetails = (params) => {
 
     const [productData, setProducData] = useState();
     const [isPending, setIsPending] = useState(true);
-
+    const [isOwner, setIsOwner] = useState(false)
 
     useEffect(() => {
         productServices.getOne("", id)
             .then(data => {
                 setProducData({ ...data });
                 setIsPending(false)
+                if(localStorage.objectId === data.ownerId){
+                    setIsOwner(true);
+                }
                 console.log(data);
             })
     }, [id])
@@ -33,12 +36,6 @@ const ProductDetails = (params) => {
     return (
         <div className="ProductDetails">
             {isPending && <div>Loading...</div>}
-            {/* { productData &&
-                <>
-                    <Card {...productData} />
-                    <button onClick={handleDeleteProduct}>Delete</button>
-                    <Link to={`/edit/${productData.objectId}`}>Edit</Link>
-                </>} */}
 
             {productData &&
                 <>
@@ -49,8 +46,12 @@ const ProductDetails = (params) => {
                         <h1>{productData.name}</h1>
                         <p className="price">${productData.price}</p>
                         <p>{productData.description}</p>
-                        <button onClick={handleDeleteProduct}>Delete</button>
-                        <Link to={`/edit/${productData.objectId}`}>Edit</Link>
+                        {isOwner &&
+                            <>
+                                <button onClick={handleDeleteProduct}>Delete</button>
+                                <Link to={`/edit/${productData.objectId}`}>Edit</Link>
+                            </>
+                        }
                     </div>
                 </>
             }

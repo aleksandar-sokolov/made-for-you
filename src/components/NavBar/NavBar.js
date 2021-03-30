@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom'
 import './NavBar.css'
 
 
-const NavBar = ({username}) => {
+const NavBar = ({ username, handleLogout }) => {
 
 
     return (
@@ -19,6 +19,8 @@ const NavBar = ({username}) => {
                 <>
                     <NavLink to="/product/add">Add Product</NavLink>
                     <NavLink to={`/user/${username}`}>Hello, {localStorage.username}</NavLink>
+                    <button onClick={handleLogout}>Logout</button>
+
                 </>
                 :
                 <>

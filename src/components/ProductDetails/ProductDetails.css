@@ -12,6 +12,7 @@ div.details {
 }
 
 .details.img img{
+    min-height: 500px;
     max-width: 100%;
     max-height: 600px;
 }
