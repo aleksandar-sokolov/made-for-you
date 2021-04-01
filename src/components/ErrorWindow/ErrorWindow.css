@@ -1,0 +1,24 @@
+.error-window {
+    padding: 10px;
+    position: absolute;
+    right: 30px;
+    background-color: #ff634772;
+    /* border: 1px solid #ff634772; */
+    border-radius: 10px;
+    width: 20%;
+}
+
+.error-window.hide-error {
+    display: none;
+}
+
+.error-window .error-button {
+    color: white;
+    background-color: rgb(107, 107, 107);
+    border: 1px solid rgb(107, 107, 107);
+    border-radius: 5px;
+}
+
+.error-window .error-button:hover {
+    cursor: pointer;
+}
