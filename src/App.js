@@ -4,13 +4,14 @@ import './App.css';
 
 import NavBar from './components/NavBar/NavBar'
 import Footer from './components/Footer/Footer'
+
 import HomePage from './components/HomePage/HomePage';
 import Contacts from './components/Contacts/Contacts';
-import ProductForm from './components/Forms/ProductForm/ProductForm';
+import ProductForm from './components/ProductForms/ProductForm/ProductForm';
 import ProductDetails from './components/ProductDetails/ProductDetails';
-import EditForm from './components/Forms/EditForm/EditForm';
-import Login from './components/Login/Login';
-import Register from './components/Register/Register';
+import EditForm from './components/ProductForms/EditForm/EditForm';
+import Login from './components/UserForms/Login/Login';
+import Register from './components/UserForms/Register/Register';
 import { logoutUser } from './services/authServices';
 import Page404 from './components/Page404/Page404';
 function App() {

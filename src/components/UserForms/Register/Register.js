@@ -1,4 +1,4 @@
-import { registerUser } from "../../services/authServices";
+import { registerUser } from "../../../services/authServices";
 
 const Register = () => {
 
