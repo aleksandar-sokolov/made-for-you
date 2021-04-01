@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 import './App.css';
 
 import NavBar from './components/NavBar/NavBar'
@@ -12,8 +12,10 @@ import EditForm from './components/Forms/EditForm/EditForm';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import { logoutUser } from './services/authServices';
-
+import Page404 from './components/Page404/Page404';
 function App() {
+
+  const history = useHistory();
 
   const [username, setUsername] = useState(localStorage.username);
 
@@ -27,6 +29,8 @@ function App() {
       console.log(res);
       localStorage.clear();
       setUsername('');
+      history.push('/')
+
     })
   }
 
@@ -42,7 +46,7 @@ function App() {
         <Route path="/edit/:id" exact component={EditForm} />
         <Route path="/login" exact ><Login onLogin = {handleLogin}/></Route>
         <Route path="/register" exact component={Register} />
-        <Route path="*" ><p>Under construction...</p></Route>
+        <Route path="*" ><Page404/></Route>
       </Switch>
       <Footer />
     </div>
