@@ -4,32 +4,53 @@ import ErrorWindow from "../../ErrorWindow/ErrorWindow";
 
 const Register = () => {
 
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [rePassword, setRePassword] = useState('');
     const [error, setError] = useState('');
 
     const handleSubmitRegister = (e) => {
         e.preventDefault()
-        
+
         const username = e.target.username.value;
         const password = e.target.password.value;
         const rePassword = e.target['re-password'].value;
-        if(password !== rePassword){
-            setError('Password michmach')
+        if (password !== rePassword) {
+            setError('Passwords mismatch!')
             return;
         }
-        // const rePassword = e.target['re-password'].value;
-        registerUser(username, password)
-            .then(res => console.log(res))
-            .catch(err => console.log(err))
 
+        if (username.length < 4) {
+            setError('Username should be at least four(4) characters long!')
+            return;
+        }
+
+        if (password.length < 4) {
+            setError('Password should be at least four(4) characters long!')
+            return;
+        }
+
+        if (!username || !password) {
+            setError('All fields are required')
+            return;
+        }
+        
+        registerUser(username, password)
+            .then(res => {
+                console.log(res)
+                if(res.hasOwnProperty("errorData")) throw new Error(res.message)
+            })
+            .catch(err => {
+                setError(err.message)
+                console.log(err);
+            })
+    }
+
+    const clearErr = () => {
+        setError('')
     }
 
     return (
         <div className="register">
             <h2>Register Form</h2>
-            {error && <ErrorWindow>{error}</ErrorWindow>}
+            {error && <ErrorWindow clearErr={clearErr}>{error}</ErrorWindow>}
             <form onSubmit={handleSubmitRegister}>
                 <label htmlFor="username">Username</label>
                 <input
@@ -53,7 +74,7 @@ const Register = () => {
                     id="re-password"
                     placeholder="Repeat your password ..."
                 />
-                <input type="submit" value="Login" />
+                <input type="submit" value="Register" />
             </form>
         </div>
     );
