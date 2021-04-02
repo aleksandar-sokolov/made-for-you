@@ -24,7 +24,7 @@ const ProductForm = ({ history }) => {
 
     return (
         <div className="ProductForm">
-            <h1>Card Form</h1>
+            <h1>Add product form</h1>
 
             <form onSubmit={onProductSubmitHandler}>
                 <label htmlFor="name">Name</label>
