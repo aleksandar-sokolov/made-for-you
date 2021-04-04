@@ -1,8 +1,13 @@
-import productServices from '../../../services/productServices'
+import { useContext } from 'react';
+import { AuthContext } from '../../../contexts/AuthContext';
+import productServices from '../../../services/productServices';
 
 import '../Form.css'
 
 const ProductForm = ({ history }) => {
+
+    const { userToken } = useContext(AuthContext);
+
 
     const onProductSubmitHandler = function (e) {
         e.preventDefault();
@@ -15,7 +20,7 @@ const ProductForm = ({ history }) => {
         }
 
         console.log(producData);
-        productServices.add(producData, localStorage.token)
+        productServices.add(producData, userToken)
             .then(res => {
                 console.log(res);
                 history.push('/');

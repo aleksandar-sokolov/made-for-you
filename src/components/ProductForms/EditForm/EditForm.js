@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../../../contexts/AuthContext';
 import productServices from '../../../services/productServices';
 import '../Form.css'
 
 const EditForm = ({ match, history }) => {
 
     const id = match.params.id;
+
+    const { userToken } = useContext(AuthContext);
 
     const [productData, setProducData] = useState();
     const [isPending, setIsPending] = useState(true);
@@ -28,8 +32,7 @@ const EditForm = ({ match, history }) => {
             description: e.target.description.value,
         }
 
-        console.log(newData);
-        productServices.update(newData, localStorage.token, id)
+        productServices.update(newData, userToken, id)
             .then(res => {
                 console.log(res);
                 history.push('/product/' + id);

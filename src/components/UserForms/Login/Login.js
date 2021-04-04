@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useHistory } from "react-router";
 import { loginUser } from "../../../services/authServices";
 import ErrorWindow from "../../ErrorWindow/ErrorWindow";
+import { AuthContext } from '../../../contexts/AuthContext'
 
-const Login = ({ onLogin }) => {
+const Login = () => {
 
     const history = useHistory();
-
     const [error, setError] = useState();
+    const { fillUserData } = useContext(AuthContext);
 
     const handleLoginSubmit = (e) => {
         e.preventDefault();
@@ -17,12 +18,8 @@ const Login = ({ onLogin }) => {
         loginUser(username, password)
             .then(res => {
                 if (res.hasOwnProperty("errorData")) throw new Error(res.message);
-
-                localStorage.setItem('username', res.username);
-                localStorage.setItem('token', res['user-token']);
-                localStorage.setItem('objectId', res.objectId);
                 console.log('successful login');
-                onLogin()
+                fillUserData(res)
                 history.push('/')
             })
             .catch(err => {

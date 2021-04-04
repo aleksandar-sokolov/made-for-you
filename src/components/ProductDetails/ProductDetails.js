@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthContext';
 import productServices from '../../services/productServices';
 // import Card from '../Cards/Card';
 import './ProductDetails.css'
@@ -12,21 +13,23 @@ const ProductDetails = (params) => {
     const [isPending, setIsPending] = useState(true);
     const [isOwner, setIsOwner] = useState(false)
 
+    const { username, userId, userToken } = useContext(AuthContext);
+
+
     useEffect(() => {
-        productServices.getOne("", id)
+        productServices.getOne(userToken, id)
             .then(data => {
                 setProducData({ ...data });
                 setIsPending(false)
-                if(localStorage.objectId === data.ownerId){
+                if (userId === data.ownerId) {
                     setIsOwner(true);
                 }
-                console.log(data);
             })
     }, [id])
 
 
     const handleDeleteProduct = () => {
-        productServices.deleteOne(localStorage.token, productData.objectId)
+        productServices.deleteOne(userToken, productData.objectId)
             .then(res => {
                 console.log(res);
                 params.history.push('/');
@@ -54,8 +57,8 @@ const ProductDetails = (params) => {
                             </>
                         }
 
-                        {!isOwner && localStorage.username && <p>Seller contacts: {productData.contacts}</p>}
-                        {!localStorage.username && <p><Link to="/login">Login</Link> to see seller contacts!</p>}
+                        {!isOwner && username && <p>Seller contacts: {productData.contacts}</p>}
+                        {!username && <p><Link to="/login">Login</Link> to see seller contacts!</p>}
                     </div>
                 </>
             }

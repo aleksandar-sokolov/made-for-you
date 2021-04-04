@@ -1,9 +1,12 @@
+import { useContext } from 'react';
 import { NavLink } from 'react-router-dom'
+import { AuthContext } from '../../contexts/AuthContext';
 import './NavBar.css'
 
 
-const NavBar = ({ username, handleLogout }) => {
+    const NavBar = () => {
 
+    const {username, clearUserData } = useContext(AuthContext);
 
     return (
 
@@ -18,8 +21,8 @@ const NavBar = ({ username, handleLogout }) => {
             {username ?
                 <>
                     <NavLink to="/product/add">Add Product</NavLink>
-                    <NavLink to={`/user/${username}`}>Hello, {localStorage.username}</NavLink>
-                    <button onClick={handleLogout}>Logout</button>
+                    <NavLink to={`/user/${username}`}>Hello, {username}</NavLink>
+                    <button onClick={clearUserData}>Logout</button>
 
                 </>
                 :

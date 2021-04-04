@@ -2,7 +2,7 @@ import { useState } from "react";
 import { registerUser } from "../../../services/authServices";
 import ErrorWindow from "../../ErrorWindow/ErrorWindow";
 
-const Register = () => {
+const Register = ({history}) => {
 
     const [error, setError] = useState('');
 
@@ -36,6 +36,7 @@ const Register = () => {
             .then(res => {
                 console.log(res)
                 if(res.hasOwnProperty("errorData")) throw new Error(res.message)
+                history.push('/login')
             })
             .catch(err => {
                 setError(err.message)
