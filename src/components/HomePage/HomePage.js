@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import productServices from '../../services/productServices';
 import Card from '../Cards/Card'
 import './HomePage.css'
-
+// import { ErrorContext } from "../../contexts/ErrorContext";
 
 const HomePage = () => {
+
 
     const [offers, setOffers] = useState();
 

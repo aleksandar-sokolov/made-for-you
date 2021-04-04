@@ -1,10 +1,9 @@
-import { useState } from 'react';
-import { Route, Switch, useHistory } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+
 import './App.css';
 
 import NavBar from './components/NavBar/NavBar'
 import Footer from './components/Footer/Footer'
-
 import HomePage from './components/HomePage/HomePage';
 import Contacts from './components/Contacts/Contacts';
 import ProductForm from './components/ProductForms/ProductForm/ProductForm';
@@ -12,36 +11,25 @@ import ProductDetails from './components/ProductDetails/ProductDetails';
 import EditForm from './components/ProductForms/EditForm/EditForm';
 import Login from './components/UserForms/Login/Login';
 import Register from './components/UserForms/Register/Register';
-import { logoutUser } from './services/authServices';
 import Page404 from './components/Page404/Page404';
+
 import AuthContextProvider from './contexts/AuthContext';
+import ErrorWindow from './components/ErrorWindow/ErrorWindow';
+import { ErrorContext } from './contexts/ErrorContext';
+import { useContext } from 'react';
 
 function App() {
 
-    // const history = useHistory();
-
-    // const [username, setUsername] = useState(localStorage.username);
-
-    // const handleLogin = () => {
-    //     setUsername(localStorage.username);
-    // }
-
-    // const handleLogout = () => {
-    //     logoutUser(localStorage.token)
-    //         .then(res => {
-    //             console.log(res);
-    //             localStorage.clear();
-    //             setUsername('');
-    //             history.push('/')
-
-    //         })
-    // }
+    const {errorMessage} = useContext(ErrorContext);
 
     return (
         <div className="site-container">
+
             <AuthContextProvider>
                 {/* <NavBar username={username} handleLogout={handleLogout} /> */}
                 <NavBar />
+                {errorMessage && <ErrorWindow>{errorMessage}</ErrorWindow>}
+
                 <Switch>
                     <Route path="/" exact component={HomePage} />
                     <Route path="/contacts" exact component={Contacts} />

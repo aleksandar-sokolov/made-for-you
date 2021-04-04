@@ -1,14 +1,14 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { useHistory } from "react-router";
 import { loginUser } from "../../../services/authServices";
-import ErrorWindow from "../../ErrorWindow/ErrorWindow";
 import { AuthContext } from '../../../contexts/AuthContext'
+import { ErrorContext } from "../../../contexts/ErrorContext";
 
 const Login = () => {
 
     const history = useHistory();
-    const [error, setError] = useState();
     const { fillUserData } = useContext(AuthContext);
+    const { displayError } = useContext(ErrorContext);
 
     const handleLoginSubmit = (e) => {
         e.preventDefault();
@@ -23,18 +23,15 @@ const Login = () => {
                 history.push('/')
             })
             .catch(err => {
-                setError(err.message)
+                displayError(err.message)
             })
     }
 
-    const clearErr = () => {
-        setError('')
-    }
 
     return (
         <div className="login">
             <h2>Login Form</h2>
-            {error && <ErrorWindow clearErr={clearErr}>{error}</ErrorWindow>}
+            {/* {error && <ErrorWindow clearErr={clearErr}>{error}</ErrorWindow>} */}
             <form onSubmit={handleLoginSubmit}>
                 <label htmlFor="username">Username</label>
                 <input type="text" name="username" id="username" placeholder="Enter username ... " />

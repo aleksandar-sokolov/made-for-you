@@ -25,7 +25,8 @@ const ProductDetails = (params) => {
                     setIsOwner(true);
                 }
             })
-    }, [id])
+    // }, [id])
+    })
 
 
     const handleDeleteProduct = () => {
