@@ -12,15 +12,15 @@ import EditForm from './components/ProductForms/EditForm/EditForm';
 import Login from './components/UserForms/Login/Login';
 import Register from './components/UserForms/Register/Register';
 import Page404 from './components/Page404/Page404';
-
 import AuthContextProvider from './contexts/AuthContext';
+import UnderConstruction from './components/UnderConstruction/UnderConstruction';
 import ErrorWindow from './components/ErrorWindow/ErrorWindow';
 import { ErrorContext } from './contexts/ErrorContext';
 import { useContext } from 'react';
 
 function App() {
 
-    const {errorMessage} = useContext(ErrorContext);
+    const { errorMessage } = useContext(ErrorContext);
 
     return (
         <div className="site-container">
@@ -39,6 +39,7 @@ function App() {
                     {/* <Route path="/login" exact ><Login onLogin={handleLogin} /></Route> */}
                     <Route path="/login" exact ><Login /></Route>
                     <Route path="/register" exact component={Register} />
+                    <Route path='/user/:username' component={UnderConstruction} />
                     <Route path="*" ><Page404 /></Route>
                 </Switch>
             </AuthContextProvider>
