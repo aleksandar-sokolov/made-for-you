@@ -31,7 +31,6 @@ const Login = () => {
     return (
         <div className="login">
             <h2>Login Form</h2>
-            {/* {error && <ErrorWindow clearErr={clearErr}>{error}</ErrorWindow>} */}
             <form onSubmit={handleLoginSubmit}>
                 <label htmlFor="username">Username</label>
                 <input type="text" name="username" id="username" placeholder="Enter username ... " />

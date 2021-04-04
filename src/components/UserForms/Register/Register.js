@@ -1,34 +1,35 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { ErrorContext } from "../../../contexts/ErrorContext";
 import { registerUser } from "../../../services/authServices";
-import ErrorWindow from "../../ErrorWindow/ErrorWindow";
+
 
 const Register = ({history}) => {
 
-    const [error, setError] = useState('');
+    const {displayError} = useContext(ErrorContext)
 
     const handleSubmitRegister = (e) => {
         e.preventDefault()
 
-        const username = e.target.username.value;
+        const username = e.target.username.value;   
         const password = e.target.password.value;
         const rePassword = e.target['re-password'].value;
         if (password !== rePassword) {
-            setError('Passwords mismatch!')
+            displayError('Passwords mismatch!')
             return;
         }
 
         if (username.length < 4) {
-            setError('Username should be at least four(4) characters long!')
+            displayError('Username should be at least four(4) characters long!')
             return;
         }
 
         if (password.length < 4) {
-            setError('Password should be at least four(4) characters long!')
+            displayError('Password should be at least four(4) characters long!')
             return;
         }
 
         if (!username || !password) {
-            setError('All fields are required')
+            displayError('All fields are required')
             return;
         }
         
@@ -39,19 +40,15 @@ const Register = ({history}) => {
                 history.push('/login')
             })
             .catch(err => {
-                setError(err.message)
+                displayError(err.message)
                 console.log(err);
             })
     }
 
-    const clearErr = () => {
-        setError('')
-    }
 
     return (
         <div className="register">
             <h2>Register Form</h2>
-            {error && <ErrorWindow clearErr={clearErr}>{error}</ErrorWindow>}
             <form onSubmit={handleSubmitRegister}>
                 <label htmlFor="username">Username</label>
                 <input

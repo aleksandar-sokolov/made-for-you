@@ -1,6 +1,6 @@
 # Made 4 You
 
-Project for SofUni React course. In the application you can register and log in. You can add a product that is publicly available. Only logged in users can see the contacts provided by the merchant. For the products you add, you can edit and delete them. 
+Project for SofUni React course. In the application you can register and log in. You can add a product that is public available. Only logged in users can see the contacts provided by the merchant. For the products you add, you can edit and delete them. 
 
 ## Available Scripts
 

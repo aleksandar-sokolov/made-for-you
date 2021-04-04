@@ -17,7 +17,6 @@ import './NavBar.css'
             <NavLink to="/" exact>Home</NavLink>
             <NavLink to="/about">About</NavLink>
             <NavLink to="/contacts">Contacts</NavLink>
-            <NavLink to="/other">Other</NavLink>
             {username ?
                 <>
                     <NavLink to="/product/add">Add Product</NavLink>
