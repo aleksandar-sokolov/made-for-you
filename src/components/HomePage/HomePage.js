@@ -11,7 +11,7 @@ const HomePage = () => {
     const { displayError } = useContext(ErrorContext);
 
     const [offers, setOffers] = useState();
-    const [isPending, setIsPending] = useState(true)
+    const [isPending, setIsPending] = useState(true);
 
     useEffect(() => {
         productServices.getAll()
@@ -38,7 +38,7 @@ const HomePage = () => {
 
             {isPending && <p>Loading...</p>}
             {!offers && !isPending && <p>No offers available . <Link to="/product/add">Add first ?</Link> </p>}
-            {offers?.map(x => {
+            {offers?.sort((a, b) => a.price - b.price).map(x => {
                 return (
                     <Card key={x.objectId} {...x} />
                 );

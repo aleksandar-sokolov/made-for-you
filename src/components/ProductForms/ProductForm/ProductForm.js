@@ -29,8 +29,12 @@ const ProductForm = ({ history }) => {
             console.log(producData);
         productServices.add(producData, userToken)
             .then(res => {
+                if (res.hasOwnProperty("errorData")) throw new Error(res.message);
                 console.log(res);
                 history.push('/');
+            })
+            .catch(err=> {
+                displayError(err.message);
             })
     };
 

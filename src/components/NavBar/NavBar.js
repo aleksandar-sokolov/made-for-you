@@ -14,14 +14,12 @@ import './NavBar.css'
             <NavLink to="/" exact>
                 <img src="/logo.png" alt="Made 4 You" />
             </NavLink>
-            <NavLink to="/" exact>Home</NavLink>
-            <NavLink to="/about">About</NavLink>
-            <NavLink to="/contacts">Contacts</NavLink>
+
             {username ?
                 <>
-                    <NavLink to="/product/add">Add Product</NavLink>
-                    <NavLink to={`/user/${username}`}>Hello, {username}</NavLink>
                     <button onClick={clearUserData}>Logout</button>
+                    <NavLink to={`/user/${username}`}>Hello, {username}</NavLink>
+                    <NavLink to="/product/add">Add Product</NavLink>
 
                 </>
                 :
@@ -30,6 +28,12 @@ import './NavBar.css'
                     <NavLink to="/login">Login</NavLink>
                 </>
             }
+
+
+            <NavLink to="/about">About</NavLink>
+            <NavLink to="/contacts">Contacts</NavLink>
+            <NavLink to="/" exact>Home</NavLink>
+
 
 
 

@@ -17,6 +17,25 @@ div.details {
     max-height: 600px;
 }
 
+.ProductDetails a,.ProductDetails button{
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    background-color: black;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid black;
+    font-size: 16px;
+}
+
+
+.ProductDetails a:hover,.ProductDetails button:hover{
+    color: black;
+    text-decoration: underline;
+    background-color: white;
+    cursor: pointer;
+}
+
 /* div.details.data{
     border: 1px solid blue;
     display: inline-block;

@@ -50,6 +50,15 @@ async function deleteOne(userToken, objectId) {
     })).json()
 }
 
+async function getAllFromUser(userToken, userId) {
+    return (await fetch(basicURL + endpoints.table + `?where=ownerId%20%3D%20%27${userId}%27`, {
+        method: 'GET',
+        headers: {
+            // 'user-token': userToken
+        },
+    })).json()
+}
+
 
 
 export default {
@@ -57,5 +66,6 @@ export default {
     getOne,
     deleteOne,
     update,
-    add
+    add,
+    getAllFromUser
 }
