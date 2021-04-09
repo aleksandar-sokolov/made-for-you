@@ -26,7 +26,7 @@ const ProductDetails = (params) => {
                 }
             })
     // }, [id])
-    })
+    },[])
 
 
     const handleDeleteProduct = () => {

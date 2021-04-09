@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { ErrorContext } from '../../../contexts/ErrorContext';
 import { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthContext';
 import productServices from '../../../services/productServices';
@@ -9,6 +10,7 @@ const EditForm = ({ match, history }) => {
     const id = match.params.id;
 
     const { userToken } = useContext(AuthContext);
+    const { displayError } = useContext(ErrorContext);
 
     const [productData, setProducData] = useState();
     const [isPending, setIsPending] = useState(true);
@@ -32,11 +34,17 @@ const EditForm = ({ match, history }) => {
             description: e.target.description.value,
         }
 
+        if (Object.values(newData).some(x => x === "")){
+            displayError("All fields are required!")
+            return;
+        }
+
         productServices.update(newData, userToken, id)
             .then(res => {
-                console.log(res);
+                if (res.hasOwnProperty("errorData")) throw new Error(res.message);
                 history.push('/product/' + id);
             })
+            .catch(err => displayError(err.message));
     };
 
 

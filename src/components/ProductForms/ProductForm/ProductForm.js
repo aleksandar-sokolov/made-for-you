@@ -1,11 +1,13 @@
 import { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthContext';
+import { ErrorContext } from '../../../contexts/ErrorContext';
 import productServices from '../../../services/productServices';
 
 import '../Form.css'
 
 const ProductForm = ({ history }) => {
 
+    const { displayError } = useContext(ErrorContext);
     const { userToken } = useContext(AuthContext);
 
 
@@ -19,7 +21,12 @@ const ProductForm = ({ history }) => {
             contacts: e.target.contacts.value,
         }
 
-        console.log(producData);
+        if (Object.values(producData).some(x => x === "")){
+            displayError("All fields are required!")
+            return;
+        }
+
+            console.log(producData);
         productServices.add(producData, userToken)
             .then(res => {
                 console.log(res);
@@ -42,7 +49,7 @@ const ProductForm = ({ history }) => {
                 <input type="text" id="imgUrl" name="imgUrl" placeholder="Enter product image URL ..." />
 
                 <label htmlFor="description">Description</label>
-                <textarea name="description" id="description" cols="30" rows="10" placeholder = "Enter product description ..."></textarea>
+                <textarea name="description" id="description" cols="30" rows="10" placeholder="Enter product description ..."></textarea>
 
                 <label htmlFor="contacts">Contacts</label>
                 <input type="text" id="contacts" name="contacts" placeholder="Enter your contacts ..." />
