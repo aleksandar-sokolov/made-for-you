@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Card.css'
 
 const Card = ({ imgUrl, name, description, price, owner, objectId }) => {
@@ -8,7 +9,7 @@ const Card = ({ imgUrl, name, description, price, owner, objectId }) => {
             <h1>{name}</h1>
             <p className="price">${price}</p>
             <p>{description}</p>
-            <p><a href={`/product/${objectId}`}>Details</a></p>
+            <p><Link to={`/product/${objectId}`}>Details</Link></p>
         </div>
     );
 }
