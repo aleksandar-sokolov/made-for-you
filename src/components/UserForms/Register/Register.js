@@ -8,7 +8,7 @@ const Register = ({ history }) => {
     const { displayError } = useContext(ErrorContext)
 
     const handleSubmitRegister = (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
         const username = e.target.username.value;
         const password = e.target.password.value;

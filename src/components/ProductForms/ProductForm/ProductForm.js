@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthContext';
 import { ErrorContext } from '../../../contexts/ErrorContext';
 import productServices from '../../../services/productServices';
+import InfoMessage from "../../InfoMessage/InfoMessage";
 
 import '../Form.css'
 
@@ -11,8 +12,9 @@ const ProductForm = ({ history }) => {
     const { userToken } = useContext(AuthContext);
 
 
-    const onProductSubmitHandler = function (e) {
+    const onProductSubmitHandler = (e) => {
         e.preventDefault();
+
         const producData = {
             name: e.target.name.value,
             price: e.target.price.value,
@@ -40,6 +42,7 @@ const ProductForm = ({ history }) => {
 
     return (
         <div className="ProductForm">
+            <InfoMessage>All fields are required!</InfoMessage>
             <h1>Add product form</h1>
 
             <form onSubmit={onProductSubmitHandler}>
