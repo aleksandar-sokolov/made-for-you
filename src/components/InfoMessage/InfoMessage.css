@@ -1,0 +1,23 @@
+div.info-message {
+    position: absolute;
+    font-size: 12px;
+    padding: 10px;
+    margin: 0 auto;
+    width: 20%;
+    background-color: rgba(194, 250, 189, 0.5);
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+
+div.info-message:hover {
+    text-decoration: line-through;
+}
+
+.info-message p {
+    display: inline;
+}
+
+.info-message.hide {
+    display: none;
+}

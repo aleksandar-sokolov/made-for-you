@@ -1,16 +1,16 @@
 import { useContext } from "react";
 import { ErrorContext } from "../../../contexts/ErrorContext";
 import { registerUser } from "../../../services/authServices";
+import InfoMessage from "../../InfoMessage/InfoMessage";
 
+const Register = ({ history }) => {
 
-const Register = ({history}) => {
-
-    const {displayError} = useContext(ErrorContext)
+    const { displayError } = useContext(ErrorContext)
 
     const handleSubmitRegister = (e) => {
         e.preventDefault()
 
-        const username = e.target.username.value;   
+        const username = e.target.username.value;
         const password = e.target.password.value;
         const rePassword = e.target['re-password'].value;
         if (password !== rePassword) {
@@ -32,11 +32,11 @@ const Register = ({history}) => {
             displayError('All fields are required')
             return;
         }
-        
+
         registerUser(username, password)
             .then(res => {
                 console.log(res)
-                if(res.hasOwnProperty("errorData")) throw new Error(res.message)
+                if (res.hasOwnProperty("errorData")) throw new Error(res.message)
                 history.push('/login')
             })
             .catch(err => {
@@ -48,6 +48,7 @@ const Register = ({history}) => {
 
     return (
         <div className="register">
+            <InfoMessage>Username and password should be at least four characters long.</InfoMessage>
             <h2>Register Form</h2>
             <form onSubmit={handleSubmitRegister}>
                 <label htmlFor="username">Username</label>
